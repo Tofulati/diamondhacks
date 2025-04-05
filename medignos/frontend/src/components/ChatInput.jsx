@@ -15,10 +15,13 @@ const ChatInput = ({ onSend }) => {
   };
 
   const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
+    if (e.target.files && e.target.files[0]) {
+      const selectedFile = e.target.files[0];
+      console.log("File selected:", selectedFile);  // Debugging: Check the selected file
       setFile(selectedFile);
-      setInput(selectedFile.name); 
+      setInput(selectedFile.name); // Set the file name in the input field
+    } else {
+      console.error("No file selected or e.target.files is undefined");
     }
   };
 
@@ -27,7 +30,7 @@ const ChatInput = ({ onSend }) => {
     if (fileInput) {
       fileInput.click();
     }
-    console.log("File upload button clicked!");  // Debugging: Check if the button is clicked
+    console.log("File upload button clicked!");
   };
 
 
@@ -43,7 +46,7 @@ const ChatInput = ({ onSend }) => {
       <label htmlFor="file-input" className="file-label">
         <button 
           type="button"
-          onClick={handleFileChange}>
+          onClick={handleFileButtonClick}>
             +
         </button>
       </label>
