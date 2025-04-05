@@ -9,11 +9,26 @@ const ChatWindow = () => {
 
   const messagesEndRef = useRef();
 
-  const addMessage = (text, from = "user") => {
-    setMessages(prev => [...prev, { text, from }]);
+  const addMessage = (messageData, from = "user") => {
+    if (messageData.file) {
+      const fileUrl = URL.createObjectURL(messageData.file);
+      setMessages(prev => [
+        ...prev, 
+        { text: messageData.message, file: fileUrl, from }
+      ]);
+    } else {
+      setMessages(prev => [
+        ...prev, 
+        { text: messageData.message, from }
+      ]);
+    }
+    
     if (from === "user") {
       setTimeout(() => {
-        setMessages(prev => [...prev, { text: "🤖 I'm just a demo bot!", from: "bot" }]);
+        setMessages(prev => [
+          ...prev,
+          { text: "🤖 I'm just a demo bot!", from: "bot" }
+        ]);
       }, 1000);
     }
   };
@@ -27,7 +42,7 @@ const ChatWindow = () => {
       <div className="chat-header">ChatBot</div>
       <div className="chat-messages">
         {messages.map((msg, idx) => (
-          <ChatBubble key={idx} message={msg.text} from={msg.from} />
+          <ChatBubble key={idx} message={msg.text} file={msg.file} from={msg.from} />
         ))}
         <div ref={messagesEndRef} />
       </div>

@@ -3,23 +3,58 @@ import '../styles/ChatInput.css';
 
 const ChatInput = ({ onSend }) => {
   const [input, setInput] = useState("");
+  const [file, setFile] = useState(null);
 
   const handleSend = () => {
-    if (input.trim()) {
-      onSend(input);
+    if (input.trim() || file) {
+      const messageData = { message: input, file: file };
+      onSend(messageData);
       setInput("");
+      setFile(null);
     }
   };
 
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      setFile(selectedFile);
+      setInput(selectedFile.name); 
+    }
+  };
+
+  const handleFileButtonClick = () => {
+    const fileInput = document.getElementById('file-input');
+    if (fileInput) {
+      fileInput.click();
+    }
+    console.log("File upload button clicked!");  // Debugging: Check if the button is clicked
+  };
+
+
   return (
     <div className="chat-input">
-      <button>+</button>
+      <input
+        type="file"
+        accept="image/*"
+        id="file-input"
+        style={{ display: 'none' }}
+        onChange={handleFileChange}
+      />
+      <label htmlFor="file-input" className="file-label">
+        <button 
+          type="button"
+          onClick={handleFileChange}>
+            +
+        </button>
+      </label>
+
       <input
         placeholder="Type a message..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === 'Enter' && handleSend()}
       />
+      
       <button onClick={handleSend}>Send</button>
     </div>
   );
