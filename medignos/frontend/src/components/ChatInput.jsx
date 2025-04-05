@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, } from 'react';
 import '../styles/ChatInput.css';
 
 const ChatInput = ({ onSend }) => {
@@ -17,9 +17,9 @@ const ChatInput = ({ onSend }) => {
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       const selectedFile = e.target.files[0];
-      console.log("File selected:", selectedFile);  // Debugging: Check the selected file
+      console.log("File selected:", selectedFile); 
       setFile(selectedFile);
-      setInput(selectedFile.name); // Set the file name in the input field
+      setInput(selectedFile.name); 
     } else {
       console.error("No file selected or e.target.files is undefined");
     }
@@ -32,7 +32,6 @@ const ChatInput = ({ onSend }) => {
     }
     console.log("File upload button clicked!");
   };
-
 
   return (
     <div className="chat-input">
