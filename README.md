@@ -43,4 +43,9 @@ Running the application (locally):
     (sudo) npm run dev
 ```
 
-- Albert, Andrei, Angel, Domonick (UCSD DiamondHacks 2025)
+References:
+- https://www.kaggle.com/datasets/dhivyeshrk/diseases-and-symptoms-dataset (dataset)
+- ChatGPT / Gemini AI (assistance with coding)
+
+
+> Albert, Andrei, Angel, Domonick (UCSD DiamondHacks 2025)
