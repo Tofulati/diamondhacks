@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/ChatInput.css';
 
 const ChatInput = ({ onSend }) => {
   const [input, setInput] = useState("");
@@ -12,6 +13,7 @@ const ChatInput = ({ onSend }) => {
 
   return (
     <div className="chat-input">
+      <button>+</button>
       <input
         placeholder="Type a message..."
         value={input}
