@@ -24,6 +24,7 @@ Goals:
     - [x] Input image to chat
     - [x] Readable text bubble/responses
     - [x] Button functionality
+  - [ ] Push application (front and back) into working webpage (constrained to time)
 
 Additional Goals:
 - [ ] Create login page (w/ auth0)
