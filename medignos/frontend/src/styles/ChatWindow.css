@@ -1,14 +1,17 @@
 /* Chat Container styled as iPhone frame */
 .chat-container {
-    width: 310px;
-    height: 585px;
-    background-color: #000;
-    border-radius: 40px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    padding: 12px;
-    position: relative;
-    overflow: hidden;
-    margin: auto;
-  }
+  width: 310px;
+  height: 585px;
+  background-color: #000;
+  border-radius: 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+  margin: 40px auto; /* center the phone */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
   
