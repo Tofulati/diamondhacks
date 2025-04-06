@@ -1,7 +1,7 @@
 /* Chat Container styled as iPhone frame */
 .chat-container {
-  width: 310px;
-  height: 585px;
+  width: 40vh;
+  height: 80vh;
   background-color: #000;
   border-radius: 40px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
