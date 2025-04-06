@@ -29,8 +29,11 @@ def send_message():
         if not message and not file:
             return jsonify({"status": "error", "message": "Message or file required"}), 400
         
-        bot_response = generate_response(message)
-        print("Bot response:", bot_response)  # Log the bot response
+        bot_response = None
+
+        if message:
+            bot_response = generate_response(message)
+            print(f"Generated response: {bot_response}")
 
         return jsonify({
             "status": "success",
