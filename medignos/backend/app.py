@@ -30,9 +30,11 @@ def send_message():
             return jsonify({"status": "error", "message": "Message or file required"}), 400
 
         # Construct message based on diagnosis
-        if not message and diagnosis_string:
+        if not message and diagnosis_string or message and diagnosis_string:
             message = (
                 f"I got a diagnosis for my skin condition through a medical machine learning model. "
+                f"If this happens, you will provide them with a description of the diagnosis and steps to treat/prevent the disease."
+                f"This should be in the same format as the previous prompts or responses. "
                 f"The following diagnosis was {diagnosis_string}. I want you to tell me more about it and give me resources or ways to address the issue."
             )
 
