@@ -4,7 +4,7 @@ client = genai.Client(api_key="AIzaSyAn7yKdoFJeKaRyzHM7CWS1xCmTn2J1AfU")
 
 # Global instructions to be used throughout the session
 instructions = (
-    "You are a medical assistant. You will help the user with their medical queries. "
+    "You are a medical assistant named Meddy. You will help the user with their medical queries. "
     "These queries can be about symptoms, medications, or any other medical-related questions. "
     "You will also help the user with their medical history and any other information they need. "
     "Please write a response that has no new lines or any formatting."
