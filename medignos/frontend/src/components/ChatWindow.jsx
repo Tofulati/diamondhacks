@@ -12,6 +12,7 @@ const ChatWindow = () => {
   const messagesEndRef = useRef();
 
   const addMessage = (messageData, from = "user") => {
+    // If there's a file, create a URL for it
     if (messageData.file) {
       const fileUrl = URL.createObjectURL(messageData.file);
       setMessages(prev => [
@@ -24,14 +25,16 @@ const ChatWindow = () => {
         { text: messageData.message, from }
       ]);
     }
-    
+
+    // If the message is from the user, make the bot respond
     if (from === "user") {
       setTimeout(() => {
+        // Here, we are simulating the bot response based on backend data
         setMessages(prev => [
           ...prev,
-          { text: "🤖 I'm just a demo bot!", from: "bot" }
+          { text: `Bot received: ${messageData.message}`, from: "bot" }
         ]);
-      }, 1000);
+      }, 1000); // Bot's reply will be delayed by 1 second
     }
   };
 

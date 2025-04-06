@@ -31,8 +31,16 @@
   padding: 1.3vh 2.2vh;
   border-radius: 2.1vh;
   font-size: 2.4vh;
-  cursor: pointer;
+    cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+.chat-input .file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-direction: row;
 }
 
 .chat-input button:hover {
