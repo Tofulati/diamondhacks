@@ -5,8 +5,7 @@ const ChatInput = ({ onSend }) => {
   const [input, setInput] = useState(""); 
   const [file, setFile] = useState(null); 
 
-  const apiBaseUrl = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
-  const apiUrl = `${apiBaseUrl}/api/send_message`; 
+  const apiUrl = `/api/send_message`;
 
   const handleSend = async () => {
     if (input.trim() || file) {
@@ -25,8 +24,6 @@ const ChatInput = ({ onSend }) => {
         if (response.ok) {
           const responseData = await response.json();
           console.log("Message sent successfully!", responseData);
-          setInput(""); 
-          setFile(null); 
         } else {
           const errorData = await response.text();
           console.error('Failed to send message', errorData);
