@@ -4,9 +4,10 @@ import './App.css'
 import ChatWindow from './components/ChatWindow.jsx'
 
 function App() {
-
   return (
-    <ChatWindow />
+    <div className="app-wrapper">
+      <ChatWindow />
+    </div>
   );
 }
 
