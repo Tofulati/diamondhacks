@@ -20,15 +20,20 @@
     transition: opacity 0.2s ease;
   }
   
-  .contact-name:hover {
+  .contact-name:active {
     opacity: 0.6;
+  }
+  
+  /* Add pointer cursor to make it clear it's clickable */
+  .contact-name {
+    cursor: pointer;
   }
   
   /* External popup with improved layout */
   .external-popup {
     position: absolute;
-    top: 15%; /* Moved higher up */
-    left: calc(50% + 25vh);
+    top: 10%; /* Moved higher up */
+    left: calc(50% + 27vh);
     display: flex;
     flex-direction: row;
     align-items: flex-start; /* Align to top instead of center */
