@@ -78,7 +78,7 @@ const ChatWindow = () => {
           <img src="/medignos_icon.svg" alt="Profile" className="popup-avatar" />
           <div className="popup-bubble">
             <div>
-             Meet Meddy — your personal virtual dermatologist! Got a rash, breakout, or mystery spot? Just type in your symptoms or upload a photo. Meddy's ready to analyze, assist, and guide you toward healthier skin. No judgment, no waiting rooms — just expert insight at your fingertips!
+             Meet Meddy — your personal virtual dermatologist! Got a rash, breakout, or mystery spot? Just type in your symptoms or upload a photo. Meddy's ready to analyze, assist, and guide you toward better healthcare. No judgment, no waiting rooms — just expert insight at your fingertips!
           </div>
           <DownloadChat messages={messages} /> {/* New button here */}
         </div>
