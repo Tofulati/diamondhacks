@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import os
 
 # Load .env file
-load_dotenv()
+load_dotenv(dotenv_path=".dev")
 
 # Get API key securely
 api_key = os.getenv("GEMINI_API_KEY")
