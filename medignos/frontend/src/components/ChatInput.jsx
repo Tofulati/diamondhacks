@@ -12,31 +12,34 @@ const ChatInput = ({ onSend }) => {
   const handleSend = async () => {
     if (input.trim() || file) {
       console.log("Sending message:", input);
-
+  
       const formData = new FormData();
       formData.append('message', input);
       if (file) formData.append('file', file);
-
+  
       try {
         const response = await fetch(apiUrl, {
           method: 'POST',
           body: formData,
         });
-
+  
         if (response.ok) {
           const responseData = await response.json();
           console.log("Message sent successfully!", responseData);
-
-          // Send the message and bot reply to the parent (ChatWindow)
+  
+          // Check if the response data has a valid bot reply
+          console.log("Bot reply:", responseData.response);
+  
+          // Pass the response correctly to the parent (ChatWindow)
           onSend({
             message: input,
-            bot_reply: responseData.bot_reply,  // This is the bot's reply
+            response: responseData.response,  // Make sure this is the correct field
             file: file
           });
-
+  
           setInput(""); 
           setFile(null);
-          setFilePreview(null); // Clear the image preview after sending
+          setFilePreview(null);  // Clear the image preview after sending
         } else {
           const errorData = await response.text();
           console.error('Failed to send message', errorData);
@@ -47,7 +50,7 @@ const ChatInput = ({ onSend }) => {
     } else {
       console.error("Message or file is empty");
     }
-  };
+  };  
 
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {

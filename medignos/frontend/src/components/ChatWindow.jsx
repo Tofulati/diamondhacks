@@ -14,21 +14,36 @@ const ChatWindow = () => {
   const messagesEndRef = useRef();
 
   const addMessage = (messageData, from = "user") => {
-    const newMessage = messageData.file
-      ? { text: messageData.message, file: URL.createObjectURL(messageData.file), from }
-      : { text: messageData.message, from };
-
-    setMessages(prev => [...prev, newMessage]);
-
+    console.log("Received message data:", messageData);  // Log messageData to check structure
+    
+    if (messageData.file) {
+      const fileUrl = URL.createObjectURL(messageData.file);
+      setMessages(prev => [
+        ...prev, 
+        { text: messageData.message, file: fileUrl, from }
+      ]);
+    } else {
+      setMessages(prev => [
+        ...prev, 
+        { text: messageData.message, from }
+      ]);
+    }
+  
     if (from === "user") {
       setTimeout(() => {
-        setMessages(prev => [
-          ...prev,
-          { text: `Bot received: ${messageData.message}`, from: "bot" }
-        ]);
-      }, 1000);
+        if (messageData.response) {
+          console.log("Bot's reply:", messageData.response);  // Log bot's response
+          setMessages(prev => [
+            ...prev,
+            { text: messageData.response, from: "bot" }
+          ]);
+        } else {
+          console.error("Bot response is missing");
+        }
+      }, 1000);  // Delay the bot's response by 1 second
     }
   };
+  
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -66,7 +81,6 @@ Got a rash, breakout, or mystery spot? Just type in your symptoms or upload a ph
           ))}
           <div ref={messagesEndRef} />
         </div>
-
         <ChatInput onSend={(msg) => addMessage(msg, "user")} />
       </div>
     </div>
