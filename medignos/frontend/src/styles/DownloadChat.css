@@ -1,0 +1,20 @@
+/* styles/DownloadChat.css */
+
+.download-button {
+    background-color: #6b5b7c;
+    color: white;
+    border: none;
+    border-radius: 1.4vh;
+    padding: 1vh 2vh;
+    font-size: 1.8vh;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 2vh;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .download-button:hover {
+    opacity: 0.7;
+  }
+  

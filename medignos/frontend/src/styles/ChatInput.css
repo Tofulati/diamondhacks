@@ -34,6 +34,9 @@
     cursor: pointer;
   transition: background-color 0.2s ease;
 }
+.chat-input button:hover {
+  opacity: 0.6;
+}
 
 .chat-input .file-preview {
   display: flex;
@@ -43,6 +46,3 @@
   flex-direction: row;
 }
 
-.chat-input button:hover {
-  background-color: #6b5b7c;
-}
