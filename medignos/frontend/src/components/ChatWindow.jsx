@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
+
 import ChatBubble from './ChatBubble.jsx';
 import ChatInput from './ChatInput.jsx';
+import '../styles/ChatWindow.css';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([

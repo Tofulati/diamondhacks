@@ -1,3 +1,5 @@
+import '../styles/ChatBubble.css';
+
 const ChatBubble = ({ message, file, from }) => {
   return (
     <div className={`chat-bubble ${from}`}>
