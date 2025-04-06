@@ -18,6 +18,12 @@ Goals:
     - [ ] Model classifies data
       - [ ] Skin disease classification
     - [x] Send information to frontend
+  - [x] Save text files for later use
+  - [x] Functional UI
+    - [x] Text box
+    - [x] Input image to chat
+    - [x] Readable text bubble/responses
+    - [x] Button functionality
 
 Additional Goals:
 - [ ] Create login page (w/ auth0)
