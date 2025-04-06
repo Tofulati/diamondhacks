@@ -41,7 +41,11 @@ const ChatWindow = () => {
 
   return (
     <div className="chat-container">
-      <div className="chat-header">ChatBot</div>
+      <div className="chat-header">
+        <img src="/Temp-PFP.jpeg" alt="Profile" />
+        <div className="contact-name">Meddy</div>
+    </div>
+
       <div className="chat-messages">
         {messages.map((msg, idx) => (
           <ChatBubble key={idx} message={msg.text} file={msg.file} from={msg.from} />
