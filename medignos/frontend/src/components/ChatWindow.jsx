@@ -29,6 +29,13 @@ const ChatWindow = () => {
         { text: messageData.message, from }
       ]);
     }
+
+    if (messageData.diagnosis) {
+      setMessages(prev => [
+        ...prev,
+        { text: `Your image was diagnosed as: ${messageData.diagnosis}`, from: "bot" }
+      ]);
+    }
     
     if (from === "user") {
       setTimeout(() => {
@@ -89,8 +96,7 @@ const ChatWindow = () => {
       <div className="chat-container">
         {/* Header */}
         <div className="chat-header">
-          
-          <img src="/Meddy.jpg" alt="Profile" />
+          <img src="/medignos_icon.svg" alt="Profile" />
           <div
             className="contact-name-wrapper"
           >
