@@ -89,7 +89,8 @@ const ChatWindow = () => {
       <div className="chat-container">
         {/* Header */}
         <div className="chat-header">
-          <img src="/medignos_icon.svg" alt="Profile" />
+          
+          <img src="/Meddy.jpg" alt="Profile" />
           <div
             className="contact-name-wrapper"
           >
