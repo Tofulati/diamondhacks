@@ -6,6 +6,7 @@ from classify import classify_image  # Replace with your actual model import
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
+os.environ['FLASK_ENV'] = 'production'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
