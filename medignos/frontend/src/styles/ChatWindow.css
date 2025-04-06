@@ -58,7 +58,7 @@ html, body {
   width: 6vh;
   height: 6vh;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: fill;
   margin-bottom: 4px;
 }
 
