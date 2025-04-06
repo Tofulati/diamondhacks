@@ -1,7 +1,14 @@
 from google import genai
+from dotenv import load_dotenv
+import os
 
-client = genai.Client(api_key="AIzaSyAn7yKdoFJeKaRyzHM7CWS1xCmTn2J1AfU")
+# Load .env file
+load_dotenv()
 
+# Get API key securely
+api_key = os.getenv("GEMINI_API_KEY")
+
+client = genai.Client(api_key=api_key)
 # Global instructions used once at the top
 instructions = (
     "You are a medical assistant named Meddy. You will help the user with their medical queries. "
