@@ -34,6 +34,6 @@ def generate_response(message):
     )
 
     # Append model response to history
-    history.append(f"Assistant: {response.text}")
+    history.append(f"{response.text}")
 
     return response.text
