@@ -42,6 +42,13 @@ Running the application (locally):
 ```
     (sudo) npm run dev
 ```
+5. Run the backend server
+```
+    # In a seperate terminal
+    cd ~/medignos/backend
+    (sudo) python app.py
+```
+6. Open link and ask!
 
 References:
 - https://www.kaggle.com/datasets/dhivyeshrk/diseases-and-symptoms-dataset (dataset)
