@@ -1,5 +1,7 @@
 # Medignos
 
+View DevPost: https://devpost.com/software/medignos
+
 Your health chat bot. Want to learn more about symptoms that you have? Want an immediate diagnosis? Medignos helps with that.
 
 Goals:
