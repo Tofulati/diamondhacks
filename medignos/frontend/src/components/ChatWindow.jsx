@@ -12,7 +12,8 @@ const ChatWindow = () => {
   const messagesEndRef = useRef();
 
   const addMessage = (messageData, from = "user") => {
-    // If there's a file, create a URL for it
+    console.log("Received message data:", messageData);  // Log messageData to check structure
+    
     if (messageData.file) {
       const fileUrl = URL.createObjectURL(messageData.file);
       setMessages(prev => [
@@ -25,18 +26,22 @@ const ChatWindow = () => {
         { text: messageData.message, from }
       ]);
     }
-
-    // If the message is from the user, make the bot respond
+  
     if (from === "user") {
       setTimeout(() => {
-        // Here, we are simulating the bot response based on backend data
-        setMessages(prev => [
-          ...prev,
-          { text: `Bot received: ${messageData.message}`, from: "bot" }
-        ]);
-      }, 1000); // Bot's reply will be delayed by 1 second
+        if (messageData.response) {
+          console.log("Bot's reply:", messageData.response);  // Log bot's response
+          setMessages(prev => [
+            ...prev,
+            { text: messageData.response, from: "bot" }
+          ]);
+        } else {
+          console.error("Bot response is missing");
+        }
+      }, 1000);  // Delay the bot's response by 1 second
     }
   };
+  
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -47,7 +52,7 @@ const ChatWindow = () => {
       <div className="chat-header">
         <img src="/Temp-PFP.jpeg" alt="Profile" />
         <div className="contact-name">Meddy</div>
-    </div>
+      </div>
 
       <div className="chat-messages">
         {messages.map((msg, idx) => (

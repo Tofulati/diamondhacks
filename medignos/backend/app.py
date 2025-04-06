@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import os
 from werkzeug.utils import secure_filename
+from model import generate_response
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -27,10 +28,14 @@ def send_message():
 
         if not message and not file:
             return jsonify({"status": "error", "message": "Message or file required"}), 400
+        
+        bot_response = generate_response(message)
+        print("Bot response:", bot_response)  # Log the bot response
 
         return jsonify({
             "status": "success",
             "message": message,
+            "response": bot_response,  # Ensure this is the correct response key
             "file": saved_file_info
         }), 200
 
