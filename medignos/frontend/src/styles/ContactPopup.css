@@ -1,0 +1,89 @@
+.chat-container-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .contact-name-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .contact-name {
+    font-weight: bold;
+    padding-left: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+    transition: opacity 0.2s ease;
+  }
+  
+  .contact-name:hover {
+    opacity: 0.6;
+  }
+  
+  /* External popup with improved layout */
+  .external-popup {
+    position: absolute;
+    top: 15%; /* Moved higher up */
+    left: calc(50% + 25vh);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align to top instead of center */
+    gap: 1.5vh;
+    z-index: 100;
+    animation: popIn 0.3s ease-out;
+    padding: 1vh;
+  }
+  
+  .popup-avatar {
+    width: 6vh;
+    height: 6vh;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.3vh solid #fff;
+    box-shadow: 0 0.2vh 0.8vh rgba(0, 0, 0, 0.2);
+    margin-top: 1vh; /* Add some top margin */
+  }
+  
+  .popup-bubble {
+    background-color: #333;
+    color: #fff;
+    padding: 2vh;
+    border-radius: 2vh;
+    position: relative;
+    font-size: 2vh;
+    line-height: 1.6;
+    box-shadow: 0 0.2vh 1vh rgba(0, 0, 0, 0.3);
+    max-width: 40vh; /* Wider bubble */
+    width: 40vh; /* Fixed width to ensure horizontal expansion */
+    text-align: center;
+  }
+  
+  .popup-bubble::after {
+    content: "";
+    position: absolute;
+    top: 2vh; /* Position point higher */
+    left: -1vh;
+    width: 0;
+    height: 0;
+    border-top: 0.8vh solid transparent;
+    border-bottom: 0.8vh solid transparent;
+    border-right: 1vh solid #333; /* Match the bubble color */
+  }
+  
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateX(-10px);
+    }
+    50% {
+      transform: scale(1.05) translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateX(0);
+    }
+  }
